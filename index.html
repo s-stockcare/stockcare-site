@@ -1,10 +1,99 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>StockCare</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StockCare - Smart Inventory System</title>
+    <!-- Bootstrap CDN for quick styling -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            color: #2e7d32;
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        table {
+            margin-top: 20px;
+        }
+        .status-safe {
+            background-color: #d4edda; /* green */
+        }
+        .status-warning {
+            background-color: #fff3cd; /* yellow */
+        }
+        .status-expired {
+            background-color: #f8d7da; /* red */
+        }
+        th, td {
+            text-align: center;
+        }
+        .tooltip-inner {
+            max-width: 200px;
+        }
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            padding: 15px;
+            font-size: 0.9rem;
+            color: #555;
+        }
+    </style>
 </head>
 <body>
-<h1>Welcome to StockCare</h1>
-<p>Smart Inventory & Expiry Tracking System</p>
+
+    <h1>📦 StockCare</h1>
+    <p class="text-center">Smart Inventory & Expiry Tracking System</p>
+
+    <div class="container">
+        <table class="table table-bordered table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <th>Product 📦</th>
+                    <th>Quantity 🔢</th>
+                    <th>Expiry Date ⏰</th>
+                    <th>Status ✅ / ⚠️ / ❌</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="status-safe" data-bs-toggle="tooltip" data-bs-placement="top" title="Safe to use">
+                    <td>Rice</td>
+                    <td>50</td>
+                    <td>2026-12-31</td>
+                    <td>✅ Safe</td>
+                </tr>
+                <tr class="status-warning" data-bs-toggle="tooltip" data-bs-placement="top" title="Near expiry, use soon">
+                    <td>Sugar</td>
+                    <td>20</td>
+                    <td>2026-03-15</td>
+                    <td>⚠️ Warning</td>
+                </tr>
+                <tr class="status-expired" data-bs-toggle="tooltip" data-bs-placement="top" title="Expired, remove immediately">
+                    <td>Milk Powder</td>
+                    <td>5</td>
+                    <td>2025-12-01</td>
+                    <td>❌ Expired</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <footer>
+        &copy; 2026 StockCare. Simple, fast, and easy to understand.
+    </footer>
+
+    <!-- Bootstrap JS for tooltip functionality -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Initialize tooltips
+        const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+        tooltipTriggerList.forEach(tooltipTriggerEl => {
+            new bootstrap.Tooltip(tooltipTriggerEl)
+        });
+    </script>
 </body>
 </html>
